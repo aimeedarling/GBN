@@ -4,3 +4,4 @@ var topic;
 
 var queryUrl = "https://newsapi.org/v2/everything?q=" + topic + "apiKey=" + apiKey;
 
+fetch(queryUrl)

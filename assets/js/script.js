@@ -1,7 +1,23 @@
-var apiKey = "ldwsXdHJNPOwNFfiDxvwKtI1sudvCvDQApJjgXhRWJY";
+apikey = 'c167ea3e7370c8a8771c880aa1c0d815';
+url = 'https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=' + apikey;
 
-var topic = "cats";
+fetch(url)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    articles = data.articles;
 
-var queryUrl = "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=" + topic + "apiKey=" + apiKey;
+    for (i = 0; i < articles.length; i++) {
+      // articles[i].title
+      console.log("Title: " + articles[i]['title']);
+      // articles[i].description
+      console.log("Description: " + articles[i]['description']);
+      // You can replace {property} below with any of the article properties returned by the API.
+      // articles[i].{property}
+      // console.log(articles[i]['{property}']);
 
-fetch("https://newsapi.org/v2/everything?q=apple&from=2023-05-08&to=2023-05-08&sortBy=popularity&apiKey=633e9fc1f7394f1a90b345edcdbd4892")
+      // Delete this line to display all the articles returned by the request. Currently only the first article is displayed.
+      break;
+    }
+  });

@@ -25,10 +25,6 @@ fetch(url)
 
 
 
-//function of search button
-
-
-
 
 
 

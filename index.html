@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
-    
+
     <!-- adds jQuery to the website-->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
@@ -72,11 +72,43 @@
             </div>
         
             <div class="card-body container-fluid col-9">
-                <ul class="list-unstyled">
-                    <h3>main content goes here</h3>
-                    <li>This is where previous searches should go.</li>
-                </ul>
                 
+<!--inserting code to display search bar for news api-->
+
+<div class="container">
+      
+    <h3 class="center" style="margin-bottom:20px;">News Search Engine <i class="material-icons medium hide-on-small-only" id="icons"></i></h3>
+    
+    <form>
+        <div class="input-field">
+            <i class="material-icons prefix">public</i>
+            <input type="text" id="searchquery">
+            <label>Search the news!</label>
+        </div>
+        
+        <div class="row">
+           <input type="submit" id="searchbtn" class="btn col m2 s12" value="search">
+           <input type="reset" id="searchbtn" class="btn col m2 s12 red right" value="clear"  style="margin-top:3px;">
+        </div>
+        
+    </form>
+    
+    <div id="loader" style="display:none;">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+    
+    <div class="row">
+       <div id="newsResults"></div>
+    </div>
+   
+    
+
+
+    
+ </div>
+                <!--this is where news api code ends-->
             </div>
    
     </div>

@@ -1,4 +1,5 @@
 apikey = 'c167ea3e7370c8a8771c880aa1c0d815';
+topic = "cats"
 url = 'https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=' + apikey;
 
 fetch(url)

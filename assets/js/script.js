@@ -13,6 +13,7 @@ $(function () {
         localStorage.setItem('searches', updatedSearches);
 
         const ulEl = $('.search-history')
+        ulEl.empty()
 
         searches.forEach(function (item) {
             let liEl = $('<li>').text(item);

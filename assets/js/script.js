@@ -1,13 +1,31 @@
 
 
 
+$(function () {
+    $('.search-btn').click(function (e) {
+        e.preventDefault();
+        let userSearch = $('#user-input').val();
+        // let storedSearches = localStorage.getItem('searches')
+        let searches = JSON.parse(localStorage.getItem('searches') || '[]');
+        searches.push(userSearch)
 
-//function of search button
+        let updatedSearches = JSON.stringify(searches)
+        localStorage.setItem('searches', updatedSearches);
 
-const searchbtn = document.querySelector(".search-btn")
-let userInput = document.querySelector(".input")
+        const ulEl = $('.search-history')
+        ulEl.empty()
 
-searchbtn.addEventListener("click", function(){
-    let userSearch = 
+        searches.forEach(function (item) {
+            let liEl = $('<li>').text(item);
+            ulEl.append(liEl)
+        })
+    });
 
-})
+    let searches = JSON.parse(localStorage.getItem('searches'))
+    const ulEl = $('.search-history')
+    searches.forEach(function (item) {
+        let liEl = $('<li>').text(item);
+        ulEl.append(liEl)
+    })
+
+});

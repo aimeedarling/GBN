@@ -7,7 +7,8 @@ $(document).ready(function(){
   $("#searchbtn").on("click",function(e){
     //prevents page from reloading when search button clicked without input
     e.preventDefault();
-    
+
+    //access what user puts into search query by putting into variable query
     let query = $("#searchquery").val();
     let url = "https://gnews.io/api/v4/search?q="+ query+"&lang=en&country=us&max=10&apikey=c167ea3e7370c8a8771c880aa1c0d815";
     

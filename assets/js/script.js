@@ -5,6 +5,7 @@
 $(document).ready(function(){
     //sets a function for when the search button is clicked 
   $("#searchbtn").on("click",function(e){
+    //prevents page from reloading when search button clicked without input
     e.preventDefault();
     
     let query = $("#searchquery").val();

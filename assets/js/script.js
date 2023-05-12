@@ -3,7 +3,7 @@
 
 
 $(document).ready(function(){
-    
+    //sets a function for when the search button is clicked 
   $("#searchbtn").on("click",function(e){
     e.preventDefault();
     

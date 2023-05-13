@@ -1,13 +1,13 @@
-
-
-
 $(function () {
     $('.search-btn').click(function (e) {
-        e.preventDefault();
+        e.preventDefault()
+
         let userSearch = $('#user-input').val();
-        // let storedSearches = localStorage.getItem('searches')
+        $('#user-input').val('')
+
         let searches = JSON.parse(localStorage.getItem('searches') || '[]');
         searches.push(userSearch)
+
 
         let updatedSearches = JSON.stringify(searches)
         localStorage.setItem('searches', updatedSearches);
@@ -15,17 +15,15 @@ $(function () {
         const ulEl = $('.search-history')
         ulEl.empty()
 
-        searches.forEach(function (item) {
-            let liEl = $('<li>').text(item);
-            ulEl.append(liEl)
-        })
-    });
+        if (searches.length > 10) {
+            searches = searches.slice(-10)
+        }
 
-    let searches = JSON.parse(localStorage.getItem('searches'))
-    const ulEl = $('.search-history')
-    searches.forEach(function (item) {
-        let liEl = $('<li>').text(item);
-        ulEl.append(liEl)
-    })
+        for (let i = searches.length - 1; i >= 0; i--) {
+            let liEl = $('<li>').text(searches[i])
+            ulEl.append(liEl)
+
+        }
+    });
 
 });

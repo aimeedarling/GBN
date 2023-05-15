@@ -1,3 +1,6 @@
+
+//! this code functions to store search items in localStorage, render them to the page with the most current at the top, and limits the list to 10 searches
+
 $(function () {
     $('.search-btn').click(function (e) {
         e.preventDefault()
@@ -27,3 +30,5 @@ $(function () {
     });
 
 });
+
+

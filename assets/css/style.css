@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    font-size:62.5%;
+    scroll-behavior: smooth;
+}
+
+.container-fluid, .row {
+    padding: 1rem;
+}
+
+#navbar-title {
+    font-family: 'Newsreader', serif, !important;
+}

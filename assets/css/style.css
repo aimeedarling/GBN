@@ -13,3 +13,7 @@ html{
 .container-fluid, .row {
     padding: 1rem;
 }
+
+#navbar-title {
+    font-family: 'Newsreader', serif, !important;
+}

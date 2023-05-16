@@ -1,43 +1,15 @@
-$(function () {
+$(document).ready(function () {
+    //sets a function for when the search button is clicked 
     $("#searchbtn").on("click", function (e) {
-        e.preventDefault()
-        //defines value of user input text to variable userSearch
+        //prevents page from reloading when search button clicked without input
+        e.preventDefault();
 
-        let userSearch = $('#user-input').val();
-        $('#user-input').val('')
-        
-        // retrieves searches from localStorage
-        let searches = JSON.parse(localStorage.getItem('searches') || '[]');
+        //access what user puts into search query by putting into variable query
+        let query = $("#searchquery").val();
+        let url = "https://gnews.io/api/v4/search?q=" + query + "&lang=en&country=us&max=10&apikey=c167ea3e7370c8a8771c880aa1c0d815";
 
-        //adds userSearch to searches array
-        searches.push(userSearch)
+        if (query !== "") {
 
-        //converts searches to JSON and setItem to storage
-        let updatedSearches = JSON.stringify(searches)
-        localStorage.setItem('searches', updatedSearches);
-
-        // declares HTML class search history as variable 
-        const ulEl = $('.search-history')
-        ulEl.empty()
-
-        //limits searches to 10
-        if (searches.length > 10) {
-            searches = searches.slice(-10)
-        }
-
-        //reverse loop to append news search to top of list
-        for (let i = searches.length - 1; i >= 0; i--) {
-            let liEl = $('<li>').text(searches[i])
-            ulEl.append(liEl)
-        }
-
-        //defines variable URL as gnews url and adds userSearch and api key
-        let url = "https://gnews.io/api/v4/search?q=" + userSearch + "&lang=en&country=us&max=10&apikey=c167ea3e7370c8a8771c880aa1c0d815";
-
-        //function if user search is not empty then --
-        if (userSearch !== "") {
-            
-            // async
             $.ajax({
 
                 url: url,
@@ -111,7 +83,7 @@ $(function () {
                 classes: 'red'
             });
         }
+
     });
 
 });
-

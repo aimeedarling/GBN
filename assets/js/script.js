@@ -34,10 +34,9 @@ $(function () {
         //defines variable URL as gnews url and adds userSearch and api key
         let url = "https://gnews.io/api/v4/search?q=" + userSearch + "&lang=en&country=us&max=10&apikey=c167ea3e7370c8a8771c880aa1c0d815";
 
-        //function if user search is not empty then --
+               //function if user search is not empty then --
         if (userSearch !== "") {
-            
-            // async
+          
             $.ajax({
 
                 url: url,
@@ -71,11 +70,12 @@ $(function () {
 
                     if (output !== "") {
                         $("#newsResults").html(output);
+                        
                         M.toast({
                             html: "There you go, nice reading",
                             classes: 'green'
                         });
-
+                
                     } else {
                         let noNews = `<div style='text-align:center; font-size:36px; margin-top:40px;'>This news isn't available. Sorry about that.<br>Try searching for something else </div>`;
                         $("#newsResults").html(noNews);
@@ -94,7 +94,7 @@ $(function () {
            </div>`;
 
                     $("#newsResults").html(internetFailure);
-                    M.toast({
+                    error.modal({
                         html: "We encountered an error, please try again",
                         classes: 'red'
                     });

@@ -18,7 +18,7 @@ html{
     font-family: 'Newsreader', serif !important;
 }
 #navbar{
-    height:300;
+    height:300 important!;
 
 }
 
@@ -28,6 +28,6 @@ html{
 }
 
 .responsive-img {
-    width: 100 px,
+   size: 20% !important;
     
 }

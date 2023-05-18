@@ -15,5 +15,10 @@ html{
 }
 
 #navbar-title {
-    font-family: 'Newsreader', serif, !important;
+    font-family: 'Newsreader', serif !important;
+}
+
+.text-red{
+    color:red;
+    font-family: 'Newsreader', serif !important;
 }

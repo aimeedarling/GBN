@@ -52,9 +52,10 @@ $(function () {
 
           for (var i in latestNews) {
             console.log("Calling GPT3")
-            var api_key = "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";
+            var api_key = "sk-xrq2wvrWdRUN7qKuurB";
+            var api_key2 = "RT3BlbkFJCJ5D851A6QNwmmO8y82Q"
             var url = "https://api.openai.com/v1/engines/davinci/completions";
-            var bearer = 'Bearer ' + api_key;
+            var bearer = 'Bearer ' + api_key + api_key2;
             var prompt = latestNews[i].content;
             OpenaiFetchAPI(url, bearer, prompt).then(response => {
               return response.json()

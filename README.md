@@ -33,7 +33,9 @@ Collaborators  GitHub profiles.
 Reference Material
 
 [README guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
+
 Oston Code Cypher [youtube](https://www.youtube.com/watch?v=hfKzh0IhtpY) and [google drive](https://drive.google.com/drive/folders/1mAsmbneFg4rJlkAeSg1JtVyUyOwMvF7e)
+
 [ChatGPT](https://openai.com/blog/chatgpt)
 
 

@@ -1,37 +1,44 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     height: 100%;
-    font-size:62.5%;
+    font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-size: medium !important;
 }
-.container-fluid, .row {
+
+.container-fluid,
+.row {
     padding: 1rem;
 }
 
-.navbar-expanded{
+.navbar-expanded {
     border-bottom: 2px solid black !important;
 }
+
 #navbar-title {
     font-family: 'Newsreader', serif !important;
     font-size: 3rem !important;
 }
-#navbar{
-    height:200 important!;
+
+#navbar {
+    height: 200 important !;
 
 }
-.card{
-    font-size: 10 px important!;
+
+.card {
+    font-size: 10 px important !;
 }
-.text-red{
-    color:red;
+
+.text-red {
+    color: red;
     font-family: 'Newsreader', serif !important;
 }
+

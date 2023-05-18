@@ -11,13 +11,9 @@ Please visit site [here](https://aimeedarling.github.io/GBN/) and visit the repo
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Screenshot of site
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![alt text = "screenshot"](assets/images/screenshot.jpg)
 
 ## Credits
 

@@ -10,20 +10,28 @@ html{
     scroll-behavior: smooth;
 }
 
+body{
+    font-size: medium !important;
+}
 .container-fluid, .row {
     padding: 1rem;
 }
 
+.navbar-expanded{
+    border-bottom: 2px solid black !important;
+}
 #navbar-title {
     font-family: 'Newsreader', serif !important;
+    font-size: 3rem !important;
 }
 #navbar{
-    height:300;
+    height:200 important!;
 
 }
-
+.card{
+    font-size: 10 px important!;
+}
 .text-red{
     color:red;
     font-family: 'Newsreader', serif !important;
 }
-

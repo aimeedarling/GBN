@@ -109,7 +109,7 @@ $(function () {
         error: function () {
           let internetFailure = `
           <div style="font-size:34px; text-align:center; margin-top:40px;">Please check your internet connection and try again.
-          <img src="img/internet.png" class="responsive-img">
+          <img src="img/internet.png" class="img-fluid">
           </div>`;
 
           $("#newsResults").html(internetFailure);

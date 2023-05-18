@@ -23,7 +23,7 @@ $(function () {
     }
 
 
-    let url = "https://gnews.io/api/v4/search?q=" + userSearch + "&lang=en&country=us&max=10&apikey=c167ea3e7370c8a8771c880aa1c0d815";
+    let url = "https://gnews.io/api/v4/search?q=" + userSearch + "&lang=en&country=us&max=10&apikey=552b4de7ae31259b75493618ed00252d";
 
     //function if user search is not empty then --
     if (userSearch !== "") {
@@ -109,7 +109,7 @@ $(function () {
         error: function () {
           let internetFailure = `
           <div style="font-size:34px; text-align:center; margin-top:40px;">Please check your internet connection and try again.
-          <img src="img/internet.png" class="responsive-img">
+          <img src="img/internet.png" class="img-fluid">
           </div>`;
 
           $("#newsResults").html(internetFailure);

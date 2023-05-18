@@ -54,29 +54,35 @@ $(function () {
         success: function (news) {
           let output = "";
           let latestNews = news.articles;
-          let apiArray= [];
-          
+
+          const container = document.querySelector('#sentiment');
+          removeAllChildNodes(container);
+
+
           for (var i in latestNews) {
-            var api_key = "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";
             console.log("Calling GPT3")
+            var api_key = "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";
             var url = "https://api.openai.com/v1/engines/davinci/completions";
             var bearer = 'Bearer ' + api_key;
-            var prompt = latestNews[i].description;
+            var prompt = latestNews[i].content;
             OpenaiFetchAPI(url, bearer, prompt).then(response => {
               return response.json()
-          
+
             }).then(data => {
               console.log(data)
               console.log(typeof data)
               console.log(Object.keys(data))
-              console.log(data['choices'][0].text)
-              
-              apiArray.push(data['choices'][0].text);
-            })
-              .catch(error => {
-                console.log('Something bad happened ' + error)
-              });
-            
+              console.log(data['choices'][0].text);
+              // Create a new HTML element to display the data
+
+              var responseText = data['choices'][0].text;
+              var responseEl = $('<div>').text(responseText);
+
+              // Append the element to a container in the HTML (e.g., "#sentiment")
+              $('#sentiment').append(responseEl);
+            }).catch(error => {
+              console.log('Something bad happened ' + error)
+            });
 
             output += `
               <div class="col l6 m6 s12">
@@ -84,7 +90,6 @@ $(function () {
               <img src="${latestNews[i].urlToImage}" class="responsive-img">
               <p>${latestNews[i].description}</p>
               <p>${latestNews[i].content}</p>
-              <p>${apiArray[i]}</p>
               <p>Published on: ${latestNews[i].publishedAt}</p>
               <a href="${latestNews[i].url}" class="btn">Read more</a>
               </div>
@@ -93,7 +98,6 @@ $(function () {
 
           if (output !== "") {
             $("#newsResults").html(output);
-
             M.toast({
               html: "There you go, nice reading",
               classes: 'green'
@@ -134,6 +138,9 @@ $(function () {
         classes: 'red'
       });
     }
+    /*console.log("function call")
+    consensusSentiment();
+    */
   });
 
 });
@@ -159,3 +166,38 @@ function OpenaiFetchAPI(url, bearer, prompt) {
   });
 }
 
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+/*
+function consensusSentiment() {
+  var sentimentElement = document.getElementById("sentiment");
+  var countPlus = 0;
+  var countNeg = 0;
+
+  for (var i = 0; i < sentimentElement.children.length; i++) {
+    var childElement = sentimentElement.children[i];
+
+    if (childElement.textContent.includes("Negative")) {
+      countNeg++;
+    }
+
+    if (childElement.textContent.includes("Positive")) {
+      countPlus++;
+    }
+  }
+
+  if (countPlus > countNeg) {
+    document.getElementById("generalSentiment").innerText = "Mostly Positive";
+  }
+  else if (countNeg > countPlus) {
+    document.getElementById("generalSentiment").innerText = "Mostly Negative";
+  }
+  else {
+    document.getElementById("generalSentiment").innerText = "Neutral";
+  }
+}
+*/

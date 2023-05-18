@@ -1,37 +1,28 @@
 $(function () {
-  $("#searchbtn").on("click", function (e) {
-    e.preventDefault()
-    //defines value of user input text to variable userSearch
 
-    let userSearch = $('#user-input').val();
-    $('#user-input').val('')
+  function handleNewSearch(userSearch){
 
-    // retrieves searches from localStorage
     let searches = JSON.parse(localStorage.getItem('searches') || '[]');
-
-    //adds userSearch to searches array
     searches.push(userSearch)
-
-    //converts searches to JSON and setItem to storage
     let updatedSearches = JSON.stringify(searches)
     localStorage.setItem('searches', updatedSearches);
-
-    // declares HTML class search history as variable 
     const ulEl = $('.search-history')
     ulEl.empty()
 
-    //limits searches to 10
     if (searches.length > 10) {
       searches = searches.slice(-10)
     }
 
-    //reverse loop to append news search to top of list
     for (let i = searches.length - 1; i >= 0; i--) {
       let liEl = $('<li>').text(searches[i])
+
+      liEl.on('click', function () {
+        handleNewSearch(searches[i])
+      })
       ulEl.append(liEl)
     }
 
-    //defines variable URL as gnews url and adds userSearch and api key
+
     let url = "https://gnews.io/api/v4/search?q=" + userSearch + "&lang=en&country=us&max=10&apikey=c167ea3e7370c8a8771c880aa1c0d815";
 
     //function if user search is not empty then --
@@ -116,9 +107,9 @@ $(function () {
 
         error: function () {
           let internetFailure = `
-           <div style="font-size:34px; text-align:center; margin-top:40px;">Please check your internet connection and try again.
-           <img src="img/internet.png" class="responsive-img">
-           </div>`;
+          <div style="font-size:34px; text-align:center; margin-top:40px;">Please check your internet connection and try again.
+          <img src="img/internet.png" class="responsive-img">
+          </div>`;
 
           $("#newsResults").html(internetFailure);
           error.modal({
@@ -138,9 +129,14 @@ $(function () {
         classes: 'red'
       });
     }
-    /*console.log("function call")
-    consensusSentiment();
-    */
+  }
+
+  $("#searchbtn").on("click", function (e) {
+    e.preventDefault()
+    let userSearch = $('#user-input').val();
+    $('#user-input').val('')
+    handleNewSearch(userSearch)
+
   });
 
 });
@@ -153,6 +149,7 @@ function OpenaiFetchAPI(url, bearer, prompt) {
       'Authorization': bearer,
       'Content-Type': 'application/json'
     },
+
     body: JSON.stringify({
       "prompt": "Decide whether the statement's sentiment is positive, neutral, or negative.\n\nStatement: \"" + prompt + "\"\nSentiment:",
       "max_tokens": 10,
@@ -162,6 +159,7 @@ function OpenaiFetchAPI(url, bearer, prompt) {
       "stream": false,
       "logprobs": null,
       "stop": "\n"
+
     })
   });
 }

@@ -23,7 +23,7 @@ $(function () {
     }
 
 
-    let url = "https://gnews.io/api/v4/search?q=" + userSearch + "&lang=en&country=us&max=10&apikey=c167ea3e7370c8a8771c880aa1c0d815";
+    let url = "https://gnews.io/api/v4/search?q=" + userSearch + "&lang=en&country=us&max=10&apikey=552b4de7ae31259b75493618ed00252d";
 
     //function if user search is not empty then --
     if (userSearch !== "") {
@@ -79,7 +79,7 @@ $(function () {
             output += `
               <div class="col l6 m6 s12">
               <h4>${latestNews[i].title}</h4>
-              <img src="${latestNews[i].image}" class="responsive-img">
+              <img src="${latestNews[i].image}" class="responsive-img" id="news-img">
               <p>${latestNews[i].description}</p>
               <p>${latestNews[i].content}</p>
               <p>Published on: ${latestNews[i].publishedAt}</p>

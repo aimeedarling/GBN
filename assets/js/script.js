@@ -79,7 +79,7 @@ $(function () {
             output += `
               <div class="col l6 m6 s12">
               <h4>${latestNews[i].title}</h4>
-              <img src="${latestNews[i].image}" class="responsive-img">
+              <img src="${latestNews[i].image}" class="img-fluid">
               <p>${latestNews[i].description}</p>
               <p>${latestNews[i].content}</p>
               <p>Published on: ${latestNews[i].publishedAt}</p>

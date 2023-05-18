@@ -17,6 +17,10 @@ html{
 #navbar-title {
     font-family: 'Newsreader', serif !important;
 }
+#navbar{
+    height:300;
+
+}
 
 .text-red{
     color:red;
